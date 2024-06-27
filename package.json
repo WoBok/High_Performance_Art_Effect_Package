@@ -1,0 +1,12 @@
+{
+  "name": "com.wemake.artpackage",
+  "version": "1.0.0",
+  "displayName": "Art Package",
+  "description": "High performance art effect package.",
+  "unity": "2022.3",
+  "author": {
+    "name": "WoBok",
+    "email": "Darwin.Vinci.WKC@gmail.com",
+    "url": "https://github.com/WoBok"
+  }
+}

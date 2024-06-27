@@ -1,0 +1,37 @@
+#pragma kernel CSMain
+
+struct Star {
+    float3 position;
+    float3 direction;
+    float movementSpeed;
+    float rotationSpeed;
+    float scale;
+};
+
+RWStructuredBuffer<Star> stars;
+StructuredBuffer<float3> targetDirection;
+
+float deltaTime;
+float3 containerPosition;
+float3 boundarySize;
+
+[numthreads(128, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID) {
+    Star star = stars[id.x];
+
+    star.position -= containerPosition;
+    star.position += boundarySize / 2;
+
+    star.position += star.direction * star.movementSpeed * deltaTime;
+
+    star.position.x %= boundarySize.x;
+    star.position.y %= boundarySize.y;
+    star.position.z %= boundarySize.z;
+
+    star.position += containerPosition;
+    star.position -= boundarySize / 2;
+
+    star.direction = lerp(star.direction, targetDirection[id.x], star.rotationSpeed * deltaTime);
+
+    stars[id.x] = star;
+}
