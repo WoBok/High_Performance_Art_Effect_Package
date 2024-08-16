@@ -1,14 +1,8 @@
 {
-    "name": "com.WoBok.AllInOne.Editor",
+    "name": "com.WoBok.ScopeVisibility",
     "rootNamespace": "",
-    "references": [
-        "Unity.RenderPipelines.Universal.Editor",
-        "Unity.RenderPipelines.Core.Runtime",
-        "Unity.RenderPipelines.Core.Editor"
-    ],
-    "includePlatforms": [
-    	"Editor"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
